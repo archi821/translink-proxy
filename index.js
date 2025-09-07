@@ -4,6 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const API_KEY = process.env.TRANSLINK_API_KEY;
+console.log('API Key:', process.env.TRANSLINK_API_KEY);
 
 app.get('/api/route/:id', async (req, res) => {
   const routeId = req.params.id;
