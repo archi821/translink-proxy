@@ -1,10 +1,12 @@
+require('dotenv').config(); // ← 加這行
+
 const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 const API_KEY = process.env.TRANSLINK_API_KEY;
-console.log('API Key:', process.env.TRANSLINK_API_KEY);
+console.log('API Key:', API_KEY); // ← 這行可以幫你確認是否成功讀取
 
 app.get('/api/route/:id', async (req, res) => {
   const routeId = req.params.id;
@@ -23,3 +25,4 @@ app.get('/api/route/:id', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Proxy server running on port ${PORT}`);
 });
+
